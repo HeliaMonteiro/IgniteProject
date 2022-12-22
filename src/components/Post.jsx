@@ -33,22 +33,28 @@ export function Post({author, publishAt, content}) {
     // ... spread operator make a copy of existent variables values.
     setComments([...comments, newCommentText]);
     setNewCommentText('');
-    }
+  }
 
   function handleNewCommentChange() {
+    event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
+  }
+
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity();
   }
 
   function deleteComment(commentToDelete) {
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete;
     })
-
     // Immutable: the variables values can not be changed.
     // We create a new value for the variable.
     setComments(commentsWithoutDeletedOne);
-}
-    
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
+
   return (
     <article className={styles.post}>
         <header>
@@ -82,10 +88,13 @@ export function Post({author, publishAt, content}) {
           placeholder="Write your comment"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
-          <button type='submit'>Post</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publish</button>
         </footer>
       </form>
 

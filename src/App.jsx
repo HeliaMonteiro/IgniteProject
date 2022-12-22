@@ -24,19 +24,19 @@ const posts = [
   {
     id: 2,
     author: {
-      avatarUrl: "https://github.com/HeliaMonteiro.png",
+      avatarUrl: "https://github.com/JoaoSousaJS.png",
       name: "Joao Sousa",
       role: "Software Developer",
     },
     content: [
-      { type: "paragraph", content: "Hi Guys 👋", },
-      { type: 'paragraph', content: "I've just add a new project to my portfolio. it's a project that I did on NLW Return, , Rocketseat's event. The project name is DoctorCare 🚀"},
+      { type: "paragraph", content: "Hi Devs 👋", },
+      { type: 'paragraph', content: "Have a look on my new project, I appreciate your feedback, thanks! 🚀"},
       {type: "link", content: "jane.design/doctorcare"},
     ],
     publishAt: new Date("10-12-2022 17:21:23"),
   },
 ];
-
+      
 // JSX = Javascript + XML (HTML)
 export function App() {
   
