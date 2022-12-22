@@ -39,12 +39,14 @@ export function Post({author, publishAt, content}) {
     setNewCommentText(event.target.value);
   }
 
-  function deleteComment(comment) {
-    const commentsWithoutDeletedOne = 
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete;
+    })
 
     // Immutable: the variables values can not be changed.
     // We create a new value for the variable.
-    setComments();
+    setComments(commentsWithoutDeletedOne);
 }
     
   return (
